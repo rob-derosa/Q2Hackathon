@@ -7,24 +7,26 @@
   * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new_forms_project.png?raw=true" Height="300" Margin="40" />
 
   * Choose **Xamarin Forms** and **Portable Class Library**
-* Make sure the platform you'll be working in is set as the Startup Project
-* Add another project to your solution > **Class Library (Shared)**
+* Make sure the platform you'll be working with (iOS or Android) is set as the Startup Project
+* Add another project to your solution > **Visual C#** > **Class Library (Shared)**
   * Name this project `OfficeDogs.Common`
 * Add a reference to `OfficeDogs.Common` to `OfficeDogs.Mobile`
+  * Look within the References in `OfficeDogs.Mobile` project > right-click to **Add References** > look under **Shared Projects** to find `OfficeDogs.Common`
 * Open `MainPage.xaml` and add the following code as your page content: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Mobile/OfficeDogs.Mobile/MainPage.xaml#L7-L45)
 * Add a new folder to `OfficeDogs.Mobile` called `ViewModels`
   * Within `ViewModels`, add a new C# class called `DogViewModel`
 * Add a new folder to `OfficeDogs.Common` called `Models`
   * Add a new file within `Models` called `Dog`
-* Add the **Newtonsoft.Json** nuget package to `OfficeDog.Mobile`
-* Add the **HttpClient** nuget package to `OfficeDog.Mobile`
-* Add some properties you want to persist to the `Dog` model (name, age, breed, gender, etc)
-* Ensure you have an `string id` - property this is required for DocumentDB
+* Add the **Newtonsoft.Json** nuget package to `OfficeDogs.Mobile`
+  * (Right-click the project and click **Manage NuGet Packages**.  The default list of packages shown will be the installed packages — make sure to click **“Browse”** to see a full list of available Nuget packages)
+* Add the **HttpClient** nuget package to `OfficeDogs.Mobile`
+* Add some properties you want to persist to the `Dog` model (name, age, breed, gender, etc) i.e. `public string Breed { get; set; }`
+* Ensure you have an `string id` (lowercase) - property this is required for DocumentDB
 * In `DogViewModel`
-  * ensure your class derives from `BindableObject`
+  * ensure your class derives from `BindableObject` (if you see an error, you’ll need to add a using reference to **Xamarin.Forms**)
   * Add 2 `INotifyPropertyChanged` properties: `Dog` and `IsBusy`
     * Instantiate `Dog` to a new instance
-* Add this `Extensions.cs` file to your `OfficeDog.Mobile` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Mobile/OfficeDogs.Mobile/Extensions.cs)
+* Add this `Extensions.cs` file to your `OfficeDogs.Mobile` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Mobile/OfficeDogs.Mobile/Extensions.cs)
 * Add the following to `DogViewModel`
   * a method called `SaveDog` that returns `Task<bool>`
     * inside, add a `try/catch` block that awaits a 2 second delay and `Debug.WriteLine` the dog's name, all encompassed with an `IsBusy` flag (this is placeholder code)
@@ -49,9 +51,9 @@
 * Add a new file > **Azure Function** and call it `SaveDog`
   * Select `HttpTrigger` as the type and set `Access rights` to `Anonymous`
   * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new%20_function.png?raw=true" height="400" />
-* Add the **Newtonsoft.Json** nuget package to `OfficeDog.Backend`
-* Add the **Microsoft.Azure.DocumentDB** nuget package to `OfficeDog.Backend`
-* Add this `Keys.cs` file to your `OfficeDog.Common` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Common/Keys.cs)
+* Add the **Newtonsoft.Json** nuget package to `OfficeDogs.Backend`
+* Add the **Microsoft.Azure.DocumentDB** nuget package to `OfficeDogs.Backend`
+* Add this `Keys.cs` file to your `OfficeDogs.Common` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Common/Keys.cs)
 
 * In the Azure Portal (portal.azure.com)
   * Create a new resource group and call it `officedogs`

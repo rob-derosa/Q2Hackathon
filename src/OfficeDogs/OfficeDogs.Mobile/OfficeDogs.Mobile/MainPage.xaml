@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:OfficeDogs.Mobile"
+             x:Class="OfficeDogs.Mobile.MainPage">
+
+	<StackLayout Spacing="40" Margin="40">
+
+		<ActivityIndicator IsRunning="{Binding IsBusy}"
+			IsVisible="{Binding IsBusy}" />
+
+		<Label Text="{Binding Dog.id}"
+				   HorizontalOptions="Center" />
+
+		<Entry Placeholder="dog name"
+				   WidthRequest="200"
+				   Text="{Binding Dog.Name}" />
+
+		<Entry Placeholder="breed"
+				   Text="{Binding Dog.Breed}"
+				   WidthRequest="200" />
+
+		<StackLayout Orientation="Horizontal">
+			<Slider Value="{Binding DogAge}"
+					VerticalOptions="Center"
+					HorizontalOptions="FillAndExpand"
+					Maximum="20"
+					Minimum="0" />
+
+			<Label Text="{Binding DogAge}"
+				   HorizontalOptions="End"
+				   VerticalOptions="Center" />
+		</StackLayout>
+
+		<Picker  Title="Gender" SelectedItem="{Binding Dog.Gender}">
+			<Picker.Items>
+				<x:String>Male</x:String>
+				<x:String>Female</x:String>
+			</Picker.Items>
+		</Picker>
+
+		<Button Text="Save"
+			Clicked="SaveClicked" />
+
+	</StackLayout>
+	
+</ContentPage>

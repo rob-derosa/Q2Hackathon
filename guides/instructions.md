@@ -11,7 +11,7 @@
 * Add another project to your solution > Class Library (Shared)
   * Name this project `OfficeDogs.Common`
 * Add a reference to `OfficeDogs.Common `to `OfficeDogs.Mobile`
-* Open `MainPage.xaml` and add the following code as your page content: <link here />
+* Open `MainPage.xaml` and add the following code as your page content: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Mobile/OfficeDogs.Mobile/MainPage.xaml#L7-L45)
 * Add a new folder to `OfficeDogs.Mobile` called `ViewModels`
   * Within `ViewModels`, add a new C# class called `DogViewModel`
 * Add a new folder to `OfficeDogs.Common` called `Models`
@@ -24,7 +24,7 @@
   * ensure your class derives from `BindableObject`
   * Add 2 `INotifyPropertyChanged` properties: `Dog` and `IsBusy`
     * Instantiate `Dog`
-* Add this `Extensions.cs` file to your `OfficeDog.Mobile` project: <link here />
+* Add this `Extensions.cs` file to your `OfficeDog.Mobile` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Mobile/OfficeDogs.Mobile/Extensions.cs)
 * Add the following to `DogViewModel`
   * a method called `SaveDog` that returns `Task<bool>`
     * inside, add a `try/catch` block that awaits a 2 second delay and `Debug.WriteLine` the dog's name, all encompassed with and `IsBusy` flag (this is placeholder code)
@@ -36,6 +36,8 @@
   * At this point, your solution should look similar to this
   * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/solution_tree.png?raw=true" width="300" />
 * Build your project and run
+  * Your app should look similar to this
+    * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/android_screen.png?raw=true" width="300" />
   * Complete the form and click `Save` - look for the dog's name in the debug output pane
   * Pat self on back
 
@@ -49,7 +51,7 @@
   * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new%20_function.png?raw=true" height="400" />
 * Add the Newtonsoft.Json nuget package to `OfficeDog.Backend`
 * Add the Microsoft.Azure.DocumentDB nuget package to `OfficeDog.Backend`
-* Add this `Keys.cs` file to your `OfficeDog.Common` project <link here>
+* Add this `Keys.cs` file to your `OfficeDog.Common` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Common/Keys.cs)
 
 * In the Azure Portal (portal.azure.com)
   * Create a new resource group and call it `officedogs`

@@ -4,7 +4,7 @@
   * Select **Cross Platform** under Visual C# and choose **Cross Platform App (Xamarin)**
   * Name your project `OfficeDogs.Mobile` and your solution `OfficeDogs`
 
-  * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new_forms_project.png?raw=true" Height="300" Margin="40" />
+  * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new_forms_project.png?raw=true" Height="600" Margin="40" />
 
   * Choose **Xamarin Forms** and **Portable Class Library**
 * Make sure the platform you'll be working with (iOS or Android) is set as the Startup Project
@@ -36,21 +36,21 @@
     * Set this property as the page's `BindingContext` - do this before `InitializeComponent`
   * Add a click event handler for the save button and call the `SaveDog` method on the ViewModel
   * At this point, your solution should look similar to this
-  * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/solution_tree.png?raw=true" width="300" />
+  * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/solution_tree.png?raw=true" width="350" />
 * Build your project and run
   * Your app should look similar to this
-  * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/android_screen.png?raw=true" width="300" />
+  * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/android_screen.png?raw=true" width="350" />
   * Complete the form and click `Save` - look for the dog's name in the debug output pane
   * Pat self on back
 
 
 ### Azure Functions + Cosmos
 * Add a new project to your solution > Cloud > Azure Functions and call it `OfficeDogs.Backend`
-* <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new_functions_project.png?raw=true" height="400" />
+* <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new_functions_project.png?raw=true" height="600" />
 * Add a reference to `OfficeDogs.Common` to `OfficeDogs.Backend`
 * Add a new file > **Azure Function** and call it `SaveDog`
   * Select `HttpTrigger` as the type and set `Access rights` to `Anonymous`
-  * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new%20_function.png?raw=true" height="400" />
+  * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new%20_function.png?raw=true" height="600" />
 * Add the **Newtonsoft.Json** nuget package to `OfficeDogs.Backend`
 * Add the **Microsoft.Azure.DocumentDB** nuget package to `OfficeDogs.Backend`
 * Add this `Keys.cs` file to your `OfficeDogs.Common` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Common/Keys.cs)
@@ -64,7 +64,7 @@
     * Copy the URL for the functions app and add it to the `Keys.cs` file (example: https://officedogs.azurewebsites.net)
 * Right click on `Office.Backend` and select `Publish`
   * Choose `Select Existing` and select the Functions App created in the previous step
-  * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/publish_settings.png?raw=true" width="600" />
+  * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/publish_settings.png?raw=true" height="600" />
   * When publish completes, click on the URL link to launch the browser
     * Add `/api/SaveDog?name=John` and ensure you see the XML string `Hello John` as the response
     * Back in the portal, you should see your function
@@ -73,9 +73,9 @@
     * Enter a unique name for the database and choose `SQL (DocumentDB)` as the API type and click `Create`
     * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/portal_new_cosmos.png?raw=true" width="300">
     * Once the database is created, click on `Overview` and copy the URI and add it to the `Keys.cs` file (example: https://officedogs.documents.azure.com:443/)
-    * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/cosmos_overview.png?raw=true" width="800">
+    * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/cosmos_overview.png?raw=true" height="400">
     * Navigate to the `Keys` section and copy the `PRIMARY KEY` and add it to the `Keys.cs` file (example: 74jdg284jsxc9AQxNXdUCnsh63XqHi28jgg1rhgabaWze33jb7lFOxMqIgvVdz5uKkq0W9NfS9HAUEqQ==)
-    * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/documentdb_keys.png?raw=true" width="600" />
+    * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/documentdb_keys.png?raw=true" height="500" />
 
 * Back in Visual Studio, add the `DocumentDbService.cs` file to your `OfficeDogs.Backend` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Backend/DocumentDbService.cs)
 * In the `SaveDog.cs` file, remove the contents of the function and remove `get` as an action

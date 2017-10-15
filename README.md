@@ -73,9 +73,9 @@
     * Enter a unique name for the database and choose `SQL (DocumentDB)` as the API type and click `Create`
     * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/portal_new_cosmos.png?raw=true" width="300">
     * Once the database is created, click on `Overview` and copy the URI and add it to the `Keys.cs` file (example: https://officedogs.documents.azure.com:443/)
-    * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/cosmos_overview.png?raw=true" width="700">
+    * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/cosmos_overview.png?raw=true" width="800">
     * Navigate to the `Keys` section and copy the `PRIMARY KEY` and add it to the `Keys.cs` file (example: 74jdg284jsxc9AQxNXdUCnsh63XqHi28jgg1rhgabaWze33jb7lFOxMqIgvVdz5uKkq0W9NfS9HAUEqQ==)
-    * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/documentdb_keys.png?raw=true" height="500" />
+    * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/documentdb_keys.png?raw=true" height="400" />
 
 * Back in Visual Studio, add the `DocumentDbService.cs` file to your `OfficeDogs.Backend` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Backend/DocumentDbService.cs)
 * In the `SaveDog.cs` file, remove the contents of the function and remove `get` as an action

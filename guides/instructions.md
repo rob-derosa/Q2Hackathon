@@ -77,17 +77,20 @@
     * Navigate to the `Keys` section and copy the `PRIMARY KEY` and add it to the `Keys.cs` file (example: 74jdg284jsxc9AQxNXdUCnsh63XqHi28jgg1rhgabaWze33jb7lFOxMqIgvVdz5uKkq0W9NfS9HAUEqQ==)
     * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/documentdb_keys.png?raw=true" width="600" />
 
-* Back in Visual Studio, we need to add some code to our ViewModel to send up the `Dog` object
-  * Open `DogViewModel` and remove the delayed task and add the following
-    * call `SendPostRequest` and pass in the function name and the `Dog` object
-    * set the value of `Dog` to the return value 
-* Back in Visual Studio, add the `DocumentDbService.cs` file to your `OfficeDogs.Backend` project <link here >
+* Back in Visual Studio, add the `DocumentDbService.cs` file to your `OfficeDogs.Backend` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Backend/DocumentDbService.cs)
 * In the `SaveDog.cs` file, remove the contents of the function and remove `get` as an action
   * Read the body contents of the post into a string by calling `req.Content.ReadAsStringAsync()`
-  * Deserialize the json content into a `Dog` object
+  * Using Newtonsoft, deserialize the json content into a `Dog` object
   * If the object's `id` value is null, save the document, otherwise update it
-  * Return the result in `req.CreateResponse`
+  * Return the the Document you saved/updated in `req.CreateResponse` as part of the response
 * Publish the backend function
+* In `OfficeDogs.Mobile.`, we need to add some code to our ViewModel to send up the `Dog` object
+  * Open `DogViewModel` and remove the delayed task and add the following:
+    * instantiate a HttpClient if it is null
+    * call `SendPostRequest` (located in Extensions.cs) and pass in the function name and the `Dog` object
+    * set the value of `Dog` to the return value if it's not null
+
+
 * Launch the mobile app, complete the form and click the `Save` button
 * Note that after a successful save, you should see a label with the document ID
   * You can also now view the JSON document in the Cosmos Data Previewer tool

@@ -2,13 +2,14 @@
   
 * In Visual Studio, **File** > **New Project**
   * Select **Cross Platform** under Visual C# and choose **Cross Platform App (Xamarin)**
+  * Choose **Blank App**
   * Name your project `OfficeDogs.Mobile` and your solution `OfficeDogs`
 
   * <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new_forms_project.png?raw=true" Height="600" Margin="40" />
 
   * Choose **Xamarin Forms** and **Portable Class Library**
 * Make sure the platform you'll be working with (iOS or Android) is set as the Startup Project
-* Add another project to your solution > **Visual C#** > **Class Library (Shared)**
+* Add another project to your solution > **Visual C#** > **Shared Project**
   * Name this project `OfficeDogs.Common`
 * Add a reference to `OfficeDogs.Common` to `OfficeDogs.Mobile`
   * Look within the References in `OfficeDogs.Mobile` project > right-click to **Add References** > look under **Shared Projects** to find `OfficeDogs.Common`

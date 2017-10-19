@@ -20,7 +20,7 @@
    1. Add a new file within `Models` called `Dog`
 1. Add the **Newtonsoft.Json** nuget package to `OfficeDogs.Mobile`
    1. (Right-click the project and click **Manage NuGet Packages**.  The default list of packages shown will be the installed packages — make sure to click **“Browse”** to see a full list of available Nuget packages)
-1. Add the **HttpClient** nuget package to `OfficeDogs.Mobile`
+1. Add the **System.Net.Http** by Microsoft nuget package to `OfficeDogs.Mobile`
 1. Add some properties you want to persist to the `Dog` model (name, age, breed, gender, etc) i.e. `public string Breed { get; set; }`
 1. Ensure you have an `string id` (lowercase) - property this is required for DocumentDB
 1. In `DogViewModel`

@@ -66,6 +66,7 @@
    1. Create a new resource group and call it `officedogs`
 
    <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new_resource_group.png?raw=true" width="300" />
+   
    1. Within this resource group
      1. Create a new Functions App and call it `officedogs-XXXX` (globally unique name) and click `Create`
 

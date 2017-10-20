@@ -16,22 +16,26 @@
 1. Add this `Keys.cs` file to your `OfficeDogs.Common` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Common/Keys.cs)
 1. Open `MainPage.xaml` and add the following code as your page content: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Mobile/OfficeDogs.Mobile/MainPage.xaml#L7-L45)
 1. Add a new folder to `OfficeDogs.Mobile` called `ViewModels`
-   1. Within `ViewModels`, add a new C# class called `DogViewModel`
+   1. Within `ViewModels`, add a new C# class called `DogViewModel` and make it `public`
 1. Add a new folder to `OfficeDogs.Common` called `Models`
    1. Add a new file within `Models` called `Dog.cs` which will serve as the `Dog` model
 1. Add the **Newtonsoft.Json** nuget package to `OfficeDogs.Mobile`
    1. (Right-click the project and click **Manage NuGet Packages**.  The default list of packages shown will be the installed packages — make sure to click **“Browse”** to see a full list of available Nuget packages)
-1. Add the **System.Net.Http** by Microsoft nuget package to `OfficeDogs.Mobile`
+1. Add the **Microsoft.Net.Http** nuget package to `OfficeDogs.Mobile`
 1. Add some properties you want to persist to the `Dog` model (name, age, breed, gender, etc) i.e. `public string Breed { get; set; }`
-1. Ensure you have an `string id` (lowercase) - property this is required for DocumentDB
+1. Ensure you have a property called `id` of type `string` (lowercase) - this is required for DocumentDB
 1. In `DogViewModel`
    1. ensure your class derives from `BindableObject` (if you see an error, you’ll need to add a using reference to **Xamarin.Forms**)
-   1. Add 2 `INotifyPropertyChanged` properties: `Dog` and `IsBusy`
+   1. Add 2 public properties: `Dog(Dog)` and `IsBusy(bool)` and call `OnPropertyChanged()` in the setter - this is what triggers the UI to re-evaluate the binding data
+      * yes, you will need a backing field for each property (eg. `_dog`)
+      * see [here](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Mobile/OfficeDogs.Mobile/ViewModels/DogViewModel.cs#L18-L23) if you get stuck:
    1. Instantiate `Dog` to a new instance
 1. Add this `Extensions.cs` file to your `OfficeDogs.Mobile` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Mobile/OfficeDogs.Mobile/Extensions.cs)
 1. Add the following to `DogViewModel`
    1. a method called `SaveDog` that returns `Task<bool>`
-   1. inside, add a `try/catch` block that awaits a 2 second delay and `Debug.WriteLine` the dog's name, all encompassed with an `IsBusy` flag (this is placeholder code)
+   1. inside, add a `try/catch/finally` block that awaits a 2 second delay and `Debug.WriteLine` the dog's name
+      1. set `IsBusy` to `true` as the first line in the `try`
+      1. set `IsBusy` to `false` in the `finally` block
    1. a property called `DogAge` that simply wraps `Dog.Age` and calls `OnPropertyChanged()` in the setter  
 1. Back in `MainPage.xaml.cs`
    1. Add a `DogViewModel` property and instantiate it to a new instance
@@ -63,12 +67,12 @@
 1. Add the **Microsoft.Azure.DocumentDB** nuget package to `OfficeDogs.Backend`
 
 1. In the Azure Portal (portal.azure.com)
-   1. Create a new resource group and call it `officedogs`
+   1. Click on **Resource Groups** and then click the **+ Add** button to create a new resource group - call it `officedogs`
 
    <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new_resource_group.png?raw=true" width="300" />
    
    1. Within this resource group
-     1. Create a new Functions App and call it `officedogs-XXXX` (globally unique name) and click `Create`
+     1. Click the **+ Add** button to create a new Functions App - call it `officedogs-XXXX` (globally unique name) and click `Create`
 
      <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/portal_new_function.png?raw=true" width="300" />
 

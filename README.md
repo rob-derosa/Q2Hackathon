@@ -13,6 +13,7 @@
    1. Name this project `OfficeDogs.Common`
 1. Add a reference to `OfficeDogs.Common` to `OfficeDogs.Mobile`
    1. Look within the References in `OfficeDogs.Mobile` project > right-click to **Add References** > look under **Shared Projects** to find `OfficeDogs.Common`
+1. Add this `Keys.cs` file to your `OfficeDogs.Common` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Common/Keys.cs)
 1. Open `MainPage.xaml` and add the following code as your page content: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Mobile/OfficeDogs.Mobile/MainPage.xaml#L7-L45)
 1. Add a new folder to `OfficeDogs.Mobile` called `ViewModels`
    1. Within `ViewModels`, add a new C# class called `DogViewModel`
@@ -60,12 +61,12 @@
 
 1. Add the **Newtonsoft.Json** nuget package to `OfficeDogs.Backend`
 1. Add the **Microsoft.Azure.DocumentDB** nuget package to `OfficeDogs.Backend`
-1. Add this `Keys.cs` file to your `OfficeDogs.Common` project: [code](https://github.com/rob-derosa/Q2Hackathon/blob/master/src/OfficeDogs/OfficeDogs.Common/Keys.cs)
 
 1. In the Azure Portal (portal.azure.com)
    1. Create a new resource group and call it `officedogs`
 
    <img src="https://github.com/rob-derosa/Q2Hackathon/blob/master/guides/images/new_resource_group.png?raw=true" width="300" />
+   
    1. Within this resource group
      1. Create a new Functions App and call it `officedogs-XXXX` (globally unique name) and click `Create`
 

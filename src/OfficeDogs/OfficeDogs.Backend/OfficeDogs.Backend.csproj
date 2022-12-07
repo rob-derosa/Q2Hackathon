@@ -5,7 +5,7 @@
   <ItemGroup>    
     <PackageReference Include="Microsoft.Azure.DocumentDB" Version="1.17.0" />    
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.2" />    
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
